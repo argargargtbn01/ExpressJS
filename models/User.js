@@ -14,7 +14,11 @@ const UserSchema = new Schema({
   name:String,
   identification_number:String,
   address:String,
-  phone_number:String
+  phone_number:String,
+  avatar : {
+    data : Buffer,
+    contentType : String
+  },
 },{
     collection:"user"
 });
