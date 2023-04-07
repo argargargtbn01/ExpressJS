@@ -3,7 +3,10 @@ const mongoose = require("mongoose");
 //   useNewUrlParser:true,
 //   useUnifiedTopology:true
 // });
-mongoose.connect('mongodb+srv://argargargtbn01:argargargtbn1@test.js6fg.mongodb.net/book_project');
+mongoose.connect(process.env.MONGO_URL);
+
+const CLIENT_ID = process.env.CLIENT_ID;
+const CLIENT_SECRET = process.env.CLIENT_SECRET;
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
@@ -15,10 +18,7 @@ const UserSchema = new Schema({
   identification_number:String,
   address:String,
   phone_number:String,
-  avatar : {
-    data : Buffer,
-    contentType : String
-  },
+  avatar : String
 },{
     collection:"user"
 });
